@@ -1,0 +1,24 @@
+{
+  "name": "js-refactor",
+  "version": "1.0.0",
+  "description": "Simple example for refactoring.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --opts ./mocha.opts"
+  },
+  "keywords": [
+    "refactoring",
+    "javascript",
+    "example"
+  ],
+  "author": "aibek.abdykasymov@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "babel-plugin-rewire": "^1.2.0"
+  }
+}
