@@ -1,30 +1,73 @@
-import {should} from 'chai';
-import {Customer, Rental, Movie} from '../movie.js';
+import {
+    expect
+} from 'chai';
+// import Movie from '../src/movie.js';
+// import Customer from '../src/customer.js';
+// import Rental from '../src/rental.js';
 
-  //  +----------------+      +-------------+-----+      +-------+---------+
-  //  | Movie          |      | Rental            |      | Customer        |
-  //  +----------------+      +-------------+-----+      +-------+---------+
-  //  | price_code     |<-----| days_rented       |<-----|                 |
-  //  +------+---------+ 1  * +-------------+-----+ *  1 +-------+---------+
-  //  |                |      |                   |      |statement        |
-  //  +------+---------+      +-------------+-----+      +-------+---------+
+//  +----------------+      +-------------+-----+      +-------+---------+
+//  | Movie          |      | Rental            |      | Customer        |
+//  +----------------+      +-------------+-----+      +-------+---------+
+//  | price_code     |<-----| days_rented       |<-----|                 |
+//  +------+---------+ 1  * +-------------+-----+ *  1 +-------+---------+
+//  |                |      |                   |      |statement        |
+//  +------+---------+      +-------------+-----+      +-------+---------+
 
 
-  // movie.js
-  // Represents a movie that can be rented
-describe('Refactoring: Javascript Edition' ,function(){
+// movie.js
+// Represents a movie that can be rented
+class Movie {
+    constructor(){}
+}
+class Rental{
+    constructor(){}
+}
+class Customer{
+    constructor(){}
+}
+
+describe('Refactoring: Javascript Edition', function () {
     // TODO: change to given
-    let rubocop, venom, up, ropocop_rental, venom_rental , up_rental;
-    beforeEach(function(){
+    let rubocop, venom, up, rubocopRental, venomRental, upRental;
+    let customer;
+    beforeEach(function () {
         rubocop = new Movie('Robocop', Movie.REGULAR);
         venom = new Movie('Venom', Movie.NEW_RELEASE);
         up = new Movie('Up!', Movie.CHILDRENS);
 
-        ropocop_rental = new Rental(robocop, 3);
-        venom_rental = new Rental(venom, 3);
-        up_rental = new Rental(up_rental, 3);
+        rubocopRental = new Rental(rubocop, 3);
+        venomRental = new Rental(venom, 3);
+        upRental = new Rental(up, 3);
+
+        // TODO: what is subject in rspec
+        customer = new Customer('Bob');
     })
     describe('Customer', function () {
-        
+        context('without rentals', function () {
+            it('prints a statement') {
+                expect(customer.statement).to.equal(`
+Rental Record for Bob
+Amount owed is 0
+You earned 0 frequent renter points
+                `);
+            }
+        });
+        context('with rentals', function () {
+            before(function () {
+                customer.addRental(rubocopRental);
+                customer.addRental(venomRental);
+                customer.addRental(upRental);
+            });
+            it('prints a statement', function () {
+                expect(customer.statement).to.equal(`
+Rental Record for Bob
+    Robocop 3.5
+    Venom 9
+    Up!1.5
+Amount owed is 14.0
+You earned 4 frequent renter points
+                `)
+            })
+        });
     })
 })
