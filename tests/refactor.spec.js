@@ -1,7 +1,7 @@
 import {
     expect
 } from 'chai';
-import Movie from '../src/movie.js';
+import {NewReleaseMovie, RegularMovie, ChildrensMovie} from '../src/movie.js';
 import Customer from '../src/customer.js';
 import Rental from '../src/rental.js';
 
@@ -11,9 +11,9 @@ describe('Refactoring: Javascript Edition', function () {
     let rubocop, venom, up, rubocopRental, venomRental, upRental;
     let customer;
     beforeEach(function () {
-        rubocop = new Movie('Robocop', Movie.REGULAR);
-        venom = new Movie('Venom', Movie.NEW_RELEASE);
-        up = new Movie('Up!', Movie.CHILDRENS);
+        rubocop = new RegularMovie('Robocop');
+        venom = new NewReleaseMovie('Venom');
+        up = new ChildrensMovie('Up!');
 
         rubocopRental = new Rental(rubocop, 3);
         venomRental = new Rental(venom, 3);

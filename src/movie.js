@@ -1,18 +1,34 @@
-export default class Movie {
-    constructor(title, priceCode) {
+class Movie {
+    constructor(title) {
         this._title = title;
-        this.priceCode = priceCode;
     }
     get title() {
         return this._title;
     }
-    static get REGULAR() {
-        return 0;
+}
+
+export class RegularMovie extends Movie{
+    calculateAmount(days){
+        let amount = 2;
+        if (days > 2){
+            amount += (days - 2) * 1.5;
+        }
+        return amount;
     }
-    static get NEW_RELEASE() {
-        return 1;
+}
+
+export class NewReleaseMovie extends Movie{
+    calculateAmount(days){
+        return days * 3;
     }
-    static get CHILDRENS() {
-        return 2;
+}
+
+export class ChildrensMovie extends Movie {
+    calculateAmount(days){
+        let amount = 1.5;
+        if(days > 3){
+            amount += (days - 3) * 1.5;
+        }
+        return amount;
     }
 }
