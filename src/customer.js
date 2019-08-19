@@ -1,4 +1,6 @@
-import { NewReleaseMovie } from './movie.js';
+import {
+    NewReleaseMovie
+} from './movie.js';
 
 export default class Customer {
     constructor(name) {

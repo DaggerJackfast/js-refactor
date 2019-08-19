@@ -1,7 +1,11 @@
 import {
     expect
 } from 'chai';
-import {NewReleaseMovie, RegularMovie, ChildrensMovie} from '../src/movie.js';
+import {
+    NewReleaseMovie,
+    RegularMovie,
+    ChildrensMovie
+} from '../src/movie.js';
 import Customer from '../src/customer.js';
 import Rental from '../src/rental.js';
 
