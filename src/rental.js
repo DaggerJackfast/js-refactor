@@ -1,4 +1,6 @@
-import {NewReleaseMovie} from './movie.js';
+import {
+    NewReleaseMovie
+} from './movie.js';
 export default class Rental {
     constructor(movie, daysRented) {
         this._movie = movie;
@@ -9,6 +11,9 @@ export default class Rental {
     }
     get daysRented() {
         return this._daysRented;
+    }
+    calculateMovieAmount() {
+        return this._movie.calculateAmount(this._daysRented);
     }
     getFrequentRentalPoints() {
         let frequentRenterPoints = 1;

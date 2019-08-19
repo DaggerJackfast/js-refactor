@@ -18,7 +18,7 @@ export default class Customer {
         let frequentRenterPoints = 0;
         let result = `Rental Record for ${this._name}\n`;
         this.rentals.forEach(rental => {
-            let movieAmount = rental.movie.calculateAmount(rental.daysRented);
+            const movieAmount = rental.calculateMovieAmount();
             frequentRenterPoints += rental.getFrequentRentalPoints();
             result += `  ${rental.movie.title}  ${movieAmount}\n`;
             totalAmount += movieAmount;
