@@ -29,7 +29,7 @@ describe('Refactoring: Javascript Edition', function () {
     describe('Customer', function () {
         context('without rentals', function () {
             it('prints a statement', function () {
-                expect(customer.statement()).to.equal(
+                expect(customer.getStatement()).to.equal(
                     `Rental Record for Bob
 Amount owed is 0
 You earned 0 frequent renter points
@@ -43,7 +43,7 @@ You earned 0 frequent renter points
                 customer.addRental(upRental);
             });
             it('prints a statement', function () {
-                expect(customer.statement()).to.equal(
+                expect(customer.getStatement()).to.equal(
                     `Rental Record for Bob
   Robocop  3.5
   Venom  9
