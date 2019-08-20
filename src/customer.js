@@ -19,7 +19,7 @@ export default class Customer {
         let result = `Rental Record for ${this._name}\n`;
         this.rentals.forEach(rental => {
             const movieAmount = rental.calculateMovieAmount();
-            frequentRenterPoints += rental.getFrequentRentalPoints();
+            frequentRenterPoints += rental.calculateFrequentPoints();
             result += `  ${rental.movie.title}  ${movieAmount}\n`;
             totalAmount += movieAmount;
         });

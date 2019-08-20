@@ -15,7 +15,7 @@ export default class Rental {
     calculateMovieAmount() {
         return this._movie.calculateAmount(this._daysRented);
     }
-    getFrequentRentalPoints() {
+    calculateFrequentPoints() {
         let frequentRenterPoints = 1;
         // add bonus for a two day new release rental
         if (this._movie instanceof NewReleaseMovie && this._daysRented > 1) {
